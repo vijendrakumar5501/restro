@@ -13,14 +13,14 @@ dotenv.config({path:"./config/config.env"});
 
 
 app.use(cors({
-    origin:[process.env.FRONTEND_URL],
-    method:["POST"],
-    Credential:true
+    origin: "http://localhost:5173",
+    methods: ["GET", "POST", "OPTIONS"],
+    credentials:true
 }));
 
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
-app.use("/api/v1/reservation",ReservationRouter)
+app.use("/api/v1/feedback",ReservationRouter)
 
 dbConnection();
 app.use(errorMiddleware);
